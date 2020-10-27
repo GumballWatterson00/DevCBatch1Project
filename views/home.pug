@@ -1,0 +1,21 @@
+extends layout
+
+block head
+  script(src='/js/lib/Chart.min.js')
+  script(src='/js/lib/jquery.min.js')
+  script(src='/js/homepage.js')
+
+block content
+  h1 Chào mừng đến với resTEK web!
+  p.lead Dưới đây là biểu đồ giá trị trung bình theo khu vực. Bạn có thể truy cập các tính năng khác ở trên.
+
+  .col-xs-12
+      select#graphDistrict.select.form-control.input-lg(form='predictForm', name='graphDistrict')
+        option.district(value='0') -- Chọn Quận --
+        each val in data.districts
+          option.district(value=val._id)=val.name
+  hr
+  .container
+    .mt-2.mb-4
+      div(style='width:90%; height:80%; margin: 0 auto;')
+        canvas#chart    

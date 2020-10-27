@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+    h3 Dự đoán giá nhà
+
+  form(action ='/predict' method='POST')
+      .form-group.row
+      label(class='col-md-2 col-form-label font-weight-bold', for='name') Quận
+        .col-md-8
+          span.asteriskField
+      .col-xs-12
+        select#districtSelect.select.form-control.input-lg(form='predictForm', name='districtId')
+          option.district(value='0') -- Chọn Quận --
+          each val in data.districts
+            option.district(value=val._id)=val.name
+        label(class='col-md-2 col-form-label font-weight-bold', for='email') Huyện
+        .col-md-8
+          span.asteriskField
+      .col-xs-12
+        select#wardSelect.select.form-control.input-lg(form='predictForm', name='wardId')
+          option.ward(value='0') -- Chọn Phường --
+
+        label(class='col-md-2 col-form-label font-weight-bold', for='message') Loại hình nhà ở
+      .col-md-8
+        span.asteriskField
+      .col-xs-12
+        select#propertyType.select.form-control.input-lg(form='predictForm', name='propertyType')
+          option.property(value='0') -- Chọn Loại hình nhà ở --
+          option.property(value='6') Nhà biệt thự
+          option.property(value='7') Nhà mặt phố, mặt tiền
+          option.property(value='10') Nhà ngõ, hẻm
+          option.property(value='11') Nhà phố liền kề
+      label(class='col-md-2 col-form-label font-weight-bold', for='message') Số phòng ngủ
+      .col-md-8
+      input.form-control(type="number" name="bedroom" id='bedroom' autofocus require)
+      label(class='col-md-2 col-form-label font-weight-bold', for='message') Diện tích
+      .col-md-8
+      input.form-control(type="number" name="area" id='area' autofocus require)
+      .form-group.row
+      
+  button.btn.btn-primary#submit-btn(type='submit')
+          | Predict
+  
+  h2(style='color: #517fa4')#result
+  
+  script(src='/js/lib/jquery.min.js')
+  script(type='text/javascript' src='/js/predict.js').
+    var x = !{JSON.stringify(data)};
+
+
+    
+    
