@@ -18,3 +18,5 @@ How to check my web:
  
  I've put in some other features in this web like users can send back houses's information for the model to predict better,... but it just stopped at "web programming" step. So wait 
  for other commits ^^!
+
+Btw, my notebook for data processing and model building is below: https://github.com/GumballWatterson00/HousePricingUsingBlendedRegressors
