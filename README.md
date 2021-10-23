@@ -12,7 +12,7 @@ like they don't know much about houses there, can't make the decision,... Or jus
 
 How to check my web:
   1. Clone it.
-  2. Go to "Flask" folder, open Terminal and type "python install -r requirements.txt" then "python main.py".
+  2. Go to "Flask" folder, open Terminal and type "pip install -r requirements.txt" then "python main.py".
   3. Go back to project's folder, open Terminal then type "npm start".
   Make sure that you have installed Python 3 and Node.js on your device ^^!
  
